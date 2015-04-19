@@ -4,6 +4,6 @@
 
 @interface AKNotesView : UIView
 
-@property (nonatomic, strong, readonly) UITextView *textView;
+@property (nonatomic, nonnull, strong, readonly) UITextView *textView;
 
 @end

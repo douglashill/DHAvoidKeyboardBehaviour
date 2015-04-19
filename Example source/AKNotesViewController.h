@@ -5,6 +5,6 @@
 @interface AKNotesViewController : UIViewController
 
 /// Designated initialiser
-- (instancetype)init __attribute((objc_designated_initializer));
+- (nonnull instancetype)init __attribute((objc_designated_initializer));
 
 @end

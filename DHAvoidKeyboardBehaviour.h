@@ -4,6 +4,6 @@
 
 @interface DHAvoidKeyboardBehaviour : NSObject
 
-@property (nonatomic, strong) IBOutlet UIScrollView *scrollView;
+@property (nonatomic, nullable, strong) IBOutlet UIScrollView *scrollView;
 
 @end

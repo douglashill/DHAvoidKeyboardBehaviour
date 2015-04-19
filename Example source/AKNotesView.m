@@ -6,7 +6,7 @@
 
 @interface AKNotesView ()
 
-@property (nonatomic, strong, readonly) DHAvoidKeyboardBehaviour *avoidKeyboardBehaviour;
+@property (nonatomic, nonnull, strong, readonly) DHAvoidKeyboardBehaviour *avoidKeyboardBehaviour;
 
 @end
 

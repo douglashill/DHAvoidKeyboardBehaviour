@@ -14,14 +14,13 @@ static NSString *const crazyOnes = @"Here’s to the crazy ones. The misfits. Th
 
 @implementation AKNotesViewController
 
-- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+- (nonnull instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
 	NSLog(@"Incorrect initialiser “%s” sent to %@", __PRETTY_FUNCTION__, [self class]);
 	return [self init];
 }
 
-- (instancetype)init {
+- (nonnull instancetype)init {
 	self = [super initWithNibName:nil bundle:nil];
-	if (self == nil) return nil;
 	
 	[self setTitle:NSLocalizedString(@"NOTES TITLE",)];
 	
