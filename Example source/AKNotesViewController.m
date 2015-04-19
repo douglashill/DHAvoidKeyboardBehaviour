@@ -12,7 +12,15 @@ static NSString *const crazyOnes = @"Here’s to the crazy ones. The misfits. Th
 @"We make tools for these kinds of people.\n\n"
 @"While some see them as the crazy ones, we see genius. Because the people who are crazy enough to think they can change the world, are the ones who do.";
 
+@interface AKNotesViewController ()
+
+@property (nonatomic, strong) AKNotesView *view;
+
+@end
+
 @implementation AKNotesViewController
+
+@dynamic view; // Implemented by UIViewController.
 
 - (nonnull instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
 	NSLog(@"Incorrect initialiser “%s” sent to %@", __PRETTY_FUNCTION__, [self class]);
@@ -25,10 +33,6 @@ static NSString *const crazyOnes = @"Here’s to the crazy ones. The misfits. Th
 	[self setTitle:NSLocalizedString(@"NOTES TITLE",)];
 	
 	return self;
-}
-
-- (AKNotesView *)notesView {
-	return (AKNotesView *)[self view];
 }
 
 - (void)loadView {
@@ -45,7 +49,7 @@ static NSString *const crazyOnes = @"Here’s to the crazy ones. The misfits. Th
 }
 
 - (void)dismissKeyboard:(id)sender {
-	[[[self notesView] textView] resignFirstResponder];
+	[[[self view] textView] resignFirstResponder];
 }
 
 @end
