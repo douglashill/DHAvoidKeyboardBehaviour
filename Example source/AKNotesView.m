@@ -2,10 +2,12 @@
 
 #import "AKNotesView.h"
 
+#import "DHContentSizeCategoryObserver.h"
 #import "DHAvoidKeyboardBehaviour.h"
 
-@interface AKNotesView ()
+@interface AKNotesView () <DHContentSizeCategoryObserverDelegate>
 
+@property (nonatomic, nonnull, strong, readonly) DHContentSizeCategoryObserver *contentSizeCategoryObserver;
 @property (nonatomic, nonnull, strong, readonly) DHAvoidKeyboardBehaviour *avoidKeyboardBehaviour;
 
 @end
@@ -19,9 +21,10 @@
 	
 	_textView = [[UITextView alloc] init];
 	[_textView setAlwaysBounceVertical:YES];
-	[_textView setFont:[UIFont systemFontOfSize:16]];
 	[_textView setKeyboardDismissMode:UIScrollViewKeyboardDismissModeInteractive];
 	[self addSubview:_textView];
+	
+	_contentSizeCategoryObserver = [DHContentSizeCategoryObserver contentSizeCategoryObserverWithDelegate:self];
 	
 	_avoidKeyboardBehaviour = [[DHAvoidKeyboardBehaviour alloc] init];
 	[_avoidKeyboardBehaviour setScrollView:_textView];
@@ -40,6 +43,14 @@
 	CGFloat const maxTextWidth = 30 * fontSize;
 	CGFloat const sideInset = MAX(minInset, 0.5 * (CGRectGetWidth([[self textView] bounds]) - maxTextWidth));
 	[[self textView] setTextContainerInset:UIEdgeInsetsMake(minInset, sideInset, minInset, sideInset)];
+}
+
+#pragma mark - AKContentSizeCategoryObserverDelegate
+
+- (void)preferredContentSizeCategoryDidChangeToContentSizeCategory:(nonnull NSString *)contentSizeCategory
+{
+	[[self textView] setFont:[UIFont preferredFontForTextStyle:UIFontTextStyleBody]];
+	[self setNeedsLayout];
 }
 
 @end

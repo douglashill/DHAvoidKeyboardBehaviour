@@ -15,6 +15,7 @@
 		A59360461A22678800711C3F /* AKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A59360451A22678800711C3F /* AKAppDelegate.m */; };
 		A59360491A22678800711C3F /* AKNotesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A59360481A22678800711C3F /* AKNotesViewController.m */; };
 		A593604E1A22678800711C3F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A593604D1A22678800711C3F /* Images.xcassets */; };
+		A5B3ED441AE54DA0002F4A19 /* DHContentSizeCategoryObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = A5B3ED431AE54DA0002F4A19 /* DHContentSizeCategoryObserver.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,8 @@
 		A59360471A22678800711C3F /* AKNotesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AKNotesViewController.h; sourceTree = "<group>"; };
 		A59360481A22678800711C3F /* AKNotesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AKNotesViewController.m; sourceTree = "<group>"; };
 		A593604D1A22678800711C3F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		A5B3ED421AE54DA0002F4A19 /* DHContentSizeCategoryObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DHContentSizeCategoryObserver.h; sourceTree = "<group>"; };
+		A5B3ED431AE54DA0002F4A19 /* DHContentSizeCategoryObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DHContentSizeCategoryObserver.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +53,8 @@
 			children = (
 				A512300C1A7971BD0090E85B /* DHAvoidKeyboardBehaviour.h */,
 				A512300D1A7971BD0090E85B /* DHAvoidKeyboardBehaviour.m */,
+				A5B3ED421AE54DA0002F4A19 /* DHContentSizeCategoryObserver.h */,
+				A5B3ED431AE54DA0002F4A19 /* DHContentSizeCategoryObserver.m */,
 				A59360661A2269BE00711C3F /* Example source */,
 				A59360671A2269C200711C3F /* Example resources */,
 				A593603E1A22678700711C3F /* Products */,
@@ -161,6 +166,7 @@
 			files = (
 				A59360491A22678800711C3F /* AKNotesViewController.m in Sources */,
 				A59360461A22678800711C3F /* AKAppDelegate.m in Sources */,
+				A5B3ED441AE54DA0002F4A19 /* DHContentSizeCategoryObserver.m in Sources */,
 				A512300E1A7971BD0090E85B /* DHAvoidKeyboardBehaviour.m in Sources */,
 				A51230291A7990D00090E85B /* AKNotesView.m in Sources */,
 				A59360431A22678800711C3F /* main.m in Sources */,
