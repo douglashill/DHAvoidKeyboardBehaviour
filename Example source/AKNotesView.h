@@ -2,8 +2,12 @@
 
 @import UIKit;
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface AKNotesView : UIView
 
-@property (nonatomic, nonnull, strong, readonly) UITextView *textView;
+@property (nonatomic, readonly) UITextView *textView;
 
 @end
+
+NS_ASSUME_NONNULL_END

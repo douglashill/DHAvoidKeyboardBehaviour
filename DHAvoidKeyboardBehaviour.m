@@ -24,7 +24,6 @@
 }
 
 - (void)updateInsetForKeyboardFrameChange:(NSNotification *)notification {
-	
 	CGRect const keyboardFrameInScreenCoordinates = [[notification userInfo][UIKeyboardFrameEndUserInfoKey] CGRectValue];
 	CGRect const keyboardFrame = [[self scrollView] convertRect:keyboardFrameInScreenCoordinates fromView:nil];
 	

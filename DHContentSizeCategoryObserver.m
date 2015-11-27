@@ -4,21 +4,18 @@
 
 @implementation DHContentSizeCategoryObserver
 
-- (void)dealloc
-{
+- (void)dealloc {
 	[[NSNotificationCenter defaultCenter] removeObserver:self name:UIContentSizeCategoryDidChangeNotification object:nil];
 }
 
-+ (nonnull instancetype)contentSizeCategoryObserverWithDelegate:(nullable id<DHContentSizeCategoryObserverDelegate>)delegate
-{
++ (instancetype)contentSizeCategoryObserverWithDelegate:(nullable id<DHContentSizeCategoryObserverDelegate>)delegate {
 	DHContentSizeCategoryObserver *const observer = [[self alloc] init];
 	[observer setDelegate:delegate];
 	[observer notifyDelegate];
 	return observer;
 }
 
-- (instancetype)init
-{
+- (instancetype)init {
 	self = [super init];
 	if (self == nil) return nil;
 	
@@ -27,13 +24,11 @@
 	return self;
 }
 
-- (void)contentSizeCategoryDidChange:(NSNotification *)notification
-{
+- (void)contentSizeCategoryDidChange:(NSNotification *)notification {
 	[self notifyDelegate];
 }
 
-- (void)notifyDelegate
-{
+- (void)notifyDelegate {
 	[[self delegate] preferredContentSizeCategoryDidChangeToContentSizeCategory:[[UIApplication sharedApplication] preferredContentSizeCategory]];
 }
 

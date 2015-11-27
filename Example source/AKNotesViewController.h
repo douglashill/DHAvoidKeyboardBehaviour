@@ -2,9 +2,13 @@
 
 @import UIKit;
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface AKNotesViewController : UIViewController
 
-/// Designated initialiser
-- (nonnull instancetype)init __attribute((objc_designated_initializer));
+- (instancetype)init NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithCoder:(NSCoder *)decoder NS_DESIGNATED_INITIALIZER;
 
 @end
+
+NS_ASSUME_NONNULL_END

@@ -2,16 +2,20 @@
 
 @import UIKit;
 
+NS_ASSUME_NONNULL_BEGIN
+
 @protocol DHContentSizeCategoryObserverDelegate <NSObject>
 
-- (void)preferredContentSizeCategoryDidChangeToContentSizeCategory:(nonnull NSString *)contentSizeCategory;
+- (void)preferredContentSizeCategoryDidChangeToContentSizeCategory:(NSString *)contentSizeCategory;
 
 @end
 
 @interface DHContentSizeCategoryObserver : NSObject
 
-+ (nonnull instancetype)contentSizeCategoryObserverWithDelegate:(nullable id <DHContentSizeCategoryObserverDelegate>)delegate;
++ (instancetype)contentSizeCategoryObserverWithDelegate:(nullable id<DHContentSizeCategoryObserverDelegate>)delegate;
 
-@property (nonatomic, nullable, weak) id <DHContentSizeCategoryObserverDelegate> delegate;
+@property (nonatomic, weak) id<DHContentSizeCategoryObserverDelegate> delegate;
 
 @end
+
+NS_ASSUME_NONNULL_END

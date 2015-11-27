@@ -14,7 +14,7 @@ static NSString *const crazyOnes = @"Here’s to the crazy ones. The misfits. Th
 
 @interface AKNotesViewController ()
 
-@property (nonatomic, strong) AKNotesView *view;
+@property (nonatomic) AKNotesView *view;
 
 @end
 
@@ -22,16 +22,21 @@ static NSString *const crazyOnes = @"Here’s to the crazy ones. The misfits. Th
 
 @dynamic view; // Implemented by UIViewController.
 
-- (nonnull instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
 	NSLog(@"Incorrect initialiser “%s” sent to %@", __PRETTY_FUNCTION__, [self class]);
 	return [self init];
 }
 
-- (nonnull instancetype)init {
-	self = [super initWithNibName:nil bundle:nil];
-	
+- (instancetype)init {
+	return sharedInit([super initWithNibName:nil bundle:nil]);
+}
+
+- (instancetype)initWithCoder:(NSCoder *)decoder {
+	return sharedInit([super initWithCoder:decoder]);
+}
+
+static AKNotesViewController *sharedInit(AKNotesViewController *self) {
 	[self setTitle:NSLocalizedString(@"NOTES TITLE",)];
-	
 	return self;
 }
 

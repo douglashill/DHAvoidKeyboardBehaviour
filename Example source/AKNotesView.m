@@ -7,15 +7,14 @@
 
 @interface AKNotesView () <DHContentSizeCategoryObserverDelegate>
 
-@property (nonatomic, nonnull, strong, readonly) DHContentSizeCategoryObserver *contentSizeCategoryObserver;
-@property (nonatomic, nonnull, strong, readonly) DHAvoidKeyboardBehaviour *avoidKeyboardBehaviour;
+@property (nonatomic, readonly) DHContentSizeCategoryObserver *contentSizeCategoryObserver;
+@property (nonatomic, readonly) DHAvoidKeyboardBehaviour *avoidKeyboardBehaviour;
 
 @end
 
 @implementation AKNotesView
 
-- (instancetype)initWithFrame:(CGRect)frame
-{
+- (instancetype)initWithFrame:(CGRect)frame {
 	self = [super initWithFrame:frame];
 	if (self == nil) return nil;
 	
@@ -32,8 +31,7 @@
 	return self;
 }
 
-- (void)layoutSubviews
-{
+- (void)layoutSubviews {
 	[super layoutSubviews];
 	
 	[[self textView] setFrame:[self bounds]];
@@ -47,8 +45,7 @@
 
 #pragma mark - AKContentSizeCategoryObserverDelegate
 
-- (void)preferredContentSizeCategoryDidChangeToContentSizeCategory:(nonnull NSString *)contentSizeCategory
-{
+- (void)preferredContentSizeCategoryDidChangeToContentSizeCategory:(NSString *)contentSizeCategory {
 	[[self textView] setFont:[UIFont preferredFontForTextStyle:UIFontTextStyleBody]];
 	[self setNeedsLayout];
 }
