@@ -37,20 +37,19 @@ static NSString *const crazyOnes = @"Here’s to the crazy ones. The misfits. Th
 }
 
 static AKNotesViewController *sharedInit(AKNotesViewController *self) {
+	if (self == nil) return nil;
 	[self setTitle:NSLocalizedString(@"NOTES TITLE",)];
 	return self;
 }
 
 - (void)loadView {
-	AKNotesView *const notesView = [[AKNotesView alloc] init];
-	[[notesView textView] setText:crazyOnes];
-
-	[self setView:notesView];
+	[self setView:[[AKNotesView alloc] init]];
 }
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
 
+	[[[self view] textView] setText:crazyOnes];
     [[[self view] textView] setDelegate:self];
 	[self updateKeyboardDismissButtonAnimated:NO];
 }
