@@ -12,9 +12,10 @@ static NSString *const crazyOnes = @"Here’s to the crazy ones. The misfits. Th
 @"We make tools for these kinds of people.\n\n"
 @"While some see them as the crazy ones, we see genius. Because the people who are crazy enough to think they can change the world, are the ones who do.";
 
-@interface AKNotesViewController ()
+@interface AKNotesViewController () <UITextViewDelegate>
 
 @property (nonatomic) AKNotesView *view;
+@property (nonatomic, readonly) UIBarButtonItem *keyboardDismissButton;
 
 @end
 
@@ -49,12 +50,36 @@ static AKNotesViewController *sharedInit(AKNotesViewController *self) {
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
-	
-	[[self navigationItem] setRightBarButtonItem:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(dismissKeyboard:)]];
+
+    [[[self view] textView] setDelegate:self];
+	[self updateKeyboardDismissButtonAnimated:NO];
+}
+
+#pragma mark - UITextViewDelegate
+
+- (void)textViewDidBeginEditing:(UITextView *)textView {
+	[self updateKeyboardDismissButtonAnimated:YES];
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView {
+	[self updateKeyboardDismissButtonAnimated:YES];
+}
+
+#pragma mark - Keyboard dismiss button
+
+- (void)updateKeyboardDismissButtonAnimated:(BOOL)animated {
+	UIBarButtonItem *const rightItem = [[[self view] textView] isFirstResponder] ? [self keyboardDismissButton] : nil;
+	[[self navigationItem] setRightBarButtonItem:rightItem animated:animated];
 }
 
 - (void)dismissKeyboard:(id)sender {
 	[[[self view] textView] resignFirstResponder];
+}
+
+@synthesize keyboardDismissButton = _keyboardDismissButton;
+
+- (UIBarButtonItem *)keyboardDismissButton {
+	return _keyboardDismissButton ?: (_keyboardDismissButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(dismissKeyboard:)]);
 }
 
 @end
