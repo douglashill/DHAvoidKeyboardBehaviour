@@ -43,7 +43,7 @@
 	[[self textView] setTextContainerInset:UIEdgeInsetsMake(minInset, sideInset, minInset, sideInset)];
 }
 
-#pragma mark - AKContentSizeCategoryObserverDelegate
+#pragma mark - DHContentSizeCategoryObserverDelegate
 
 - (void)preferredContentSizeCategoryDidChangeToContentSizeCategory:(NSString *)contentSizeCategory {
 	[[self textView] setFont:[UIFont preferredFontForTextStyle:UIFontTextStyleBody]];
