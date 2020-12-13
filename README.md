@@ -1,3 +1,5 @@
+This project is not maintained. For a more modern take, [check out this approach using `additionalSafeAreaInsets`](https://gist.github.com/douglashill/41ea84f0ba59feecd3be51f21f73d501).
+
 # DHAvoidKeyboardBehaviour
 
 A [behaviour][objc] for iOS apps to ensure scroll view content is not covered by the keyboard. With iPad Split View, [the keyboard could cover an app at any time, when the app isn’t using the keyboard itself][uyl].
